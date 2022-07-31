@@ -3,10 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SelectCityComponent } from './components/select-city/select-city.component';
+import { CityDetailsComponent } from './components/city-details/city-details.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SelectCityComponent,
+    CityDetailsComponent
   ],
   imports: [
     BrowserModule,
