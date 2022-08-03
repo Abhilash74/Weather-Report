@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CityServiceService } from 'src/app/services/city-service.service';
 
 @Component({
   selector: 'app-select-city',
@@ -7,9 +8,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectCityComponent implements OnInit {
 
-  constructor() { }
+  public inputValue: string = '';
+
+  constructor(private cityService: CityServiceService) { }
 
   ngOnInit(): void {
   }
+
+  onKey(event: any) {
+    this.inputValue = event.target.value;
+  }
+
+  getCityDetails() {
+    this.cityService.getCity(this.inputValue).subscribe((response: any) => {
+      const data = response;
+      console.log(response);
+      const object = {
+        lat: data[0].lat,
+        lon: data[0].lon
+      };
+      if (data.length > 0) {
+        this.cityService.getCityWeatherDetails(object).subscribe(response => {
+          console.log(response);
+
+        });
+      }
+    });
+  }
+
 
 }

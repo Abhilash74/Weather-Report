@@ -1,0 +1,32 @@
+.select-city {
+    margin: 10px;
+    height: 100%;
+
+    .search {
+        width: -webkit-fill-available;
+    }
+
+    .divider {
+        border-bottom: 3px solid black;
+        margin-top: 15px;
+    }
+
+    .recent-locations {
+        border-bottom: 2px solid lightgray;
+        padding: 5px;
+        margin-top: 8px;
+        color: lightgrey;
+    }
+
+    .recent-location-details {
+        border-bottom: 2px solid lightgray;
+        padding: 5px;
+        margin: auto;
+    }
+
+    .icons {
+        width: 1em;
+        height: 1em;
+        cursor: pointer;
+    }
+}

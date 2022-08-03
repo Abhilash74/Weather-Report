@@ -1,11 +1,26 @@
-
 <div class="select-city">
-<div class="row">
+  <div class="row">
     <div class="col-8">
-        <input type="search" value="Type city">
+      <input
+        class="search"
+        type="search"
+        id="search"
+        placeholder="Type city name" (keyup)="onKey($event)"
+      />
     </div>
     <div class="col-3">
-        <img src="">
+        <i class="icons bi bi-plus-lg" (click)="getCityDetails()"></i>
     </div>
-</div>
+  </div>
+  <div class="divider"></div>
+  <h6 class="recent-locations">Recent locations</h6>
+  <div class="row recent-location-details">
+    <div class="col-8">City name</div>
+    <div class="col-2">
+        <i class="icons bi bi-arrow-repeat"></i>
+    </div>
+    <div class="col-2">
+        <i class="icons bi bi-x-lg"></i>
+    </div>
+  </div>
 </div>
