@@ -23,14 +23,13 @@ export class SelectCityComponent implements OnInit {
     this.cityService.getCity(this.inputValue).subscribe((response: any) => {
       const data = response;
       console.log(response);
-      const object = {
-        lat: data[0].lat,
-        lon: data[0].lon
-      };
       if (data.length > 0) {
+        const object = {
+          lat: data[0].lat,
+          lon: data[0].lon
+        };
         this.cityService.getCityWeatherDetails(object).subscribe(response => {
           console.log(response);
-
         });
       }
     });
