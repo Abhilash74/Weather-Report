@@ -7,6 +7,7 @@
         id="search"
         placeholder="Type city name" (keyup)="onKey($event)"
       />
+      <h6 *ngIf="!isValidCity" style="color: red;">No city found</h6>
     </div>
     <div class="col-3">
         <i class="icons bi bi-plus-lg" (click)="getCityDetails()"></i>
@@ -14,13 +15,14 @@
   </div>
   <div class="divider"></div>
   <h6 class="recent-locations">Recent locations</h6>
-  <div class="row recent-location-details">
-    <div class="col-8">City name</div>
+  <div class="row recent-location-details" *ngFor="let city of cityList; let idx = index">
+    <div class="col-8">{{city.name}} - {{city.temp}}°C {{city.weather}}</div>
     <div class="col-2">
-        <i class="icons bi bi-arrow-repeat"></i>
+        <i class="icons bi bi-arrow-repeat" (click)="getHourlyWeather(idx)"></i>
     </div>
     <div class="col-2">
-        <i class="icons bi bi-x-lg"></i>
+        <i class="icons bi bi-x-lg" (click)="deleteCity(idx)"></i>
     </div>
   </div>
+  <button class="clear-button" type="button" (click)="clearList()">Clear</button>
 </div>
